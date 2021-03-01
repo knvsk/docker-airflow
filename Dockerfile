@@ -55,13 +55,13 @@ RUN set -ex \
     && locale-gen \
     && update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 \
     && useradd -ms /bin/bash -d ${AIRFLOW_USER_HOME} airflow \
-    && pip --default-timeout=1000 install -U pip setuptools wheel \
-    && pip --default-timeout=1000 install pytz \
-    && pip --default-timeout=1000 install pyOpenSSL \
-    && pip --default-timeout=1000 install ndg-httpsclient \
-    && pip --default-timeout=1000 install pyasn1 \
-    && pip --default-timeout=1000 install apache-airflow[crypto,celery,postgres,hive,jdbc,mysql,ssh${AIRFLOW_DEPS:+,}${AIRFLOW_DEPS}]==${AIRFLOW_VERSION} \
-    && pip --default-timeout=1000 install 'redis==3.2' \
+    && pip --default-timeout=1000 install --trusted-host pypi.org --trusted-host files.pythonhosted.org -U pip setuptools wheel \
+    && pip --default-timeout=1000 install --trusted-host pypi.org --trusted-host files.pythonhosted.org pytz \
+    && pip --default-timeout=1000 install --trusted-host pypi.org --trusted-host files.pythonhosted.org pyOpenSSL \
+    && pip --default-timeout=1000 install --trusted-host pypi.org --trusted-host files.pythonhosted.org ndg-httpsclient \
+    && pip --default-timeout=1000 install --trusted-host pypi.org --trusted-host files.pythonhosted.org pyasn1 \
+    && pip --default-timeout=1000 install --trusted-host pypi.org --trusted-host files.pythonhosted.org apache-airflow[crypto,celery,postgres,hive,jdbc,mysql,ssh${AIRFLOW_DEPS:+,}${AIRFLOW_DEPS}]==${AIRFLOW_VERSION} \
+    && pip --default-timeout=1000 install --trusted-host pypi.org --trusted-host files.pythonhosted.org 'redis==3.2' \
     && if [ -n "${PYTHON_DEPS}" ]; then pip install ${PYTHON_DEPS}; fi \
     && apt-get purge --auto-remove -yqq $buildDeps \
     && apt-get autoremove -yqq --purge \
