@@ -4,6 +4,6 @@ RUN pip --default-timeout=1000 install --trusted-host pypi.org --trusted-host fi
 # RUN pip --default-timeout=1000 install --trusted-host pypi.org --trusted-host files.pythonhosted.org s3
 
 USER airflow
-WORKDIR ${AIRFLOW_USER_HOME}
-ENTRYPOINT ["/entrypoint.sh"]
+# WORKDIR ${AIRFLOW_USER_HOME}
+# ENTRYPOINT ["/entrypoint.sh"]
 CMD ["webserver"]
