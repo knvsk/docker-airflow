@@ -1,5 +1,5 @@
 FROM puckel/docker-airflow:1.10.9
-RUN pip --default-timeout=1000 install --trusted-host pypi.org --trusted-host files.pythonhosted.org gcp_api
+RUN pip --default-timeout=1000 install --trusted-host pypi.org --trusted-host files.pythonhosted.org google.cloud.bigquery
 RUN pip --default-timeout=1000 install --trusted-host pypi.org --trusted-host files.pythonhosted.org httplib2
 # RUN pip --default-timeout=1000 install --trusted-host pypi.org --trusted-host files.pythonhosted.org s3
 
